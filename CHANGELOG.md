@@ -2,6 +2,40 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 5.1.0 - 2017-12-06
+### Added
+- Added removal of `<link rel="import" src="">` tags after the page is done loading to the `removeScriptTags` plugin. Imported HTML can have script tags in it, and since it's already been rendered to the page we can safely remove it when running that plugin.
+
+## 5.0.3 - 2017-11-29
+### Added
+- Added `if (window.customElements) customElements.forcePolyfill = true`, `ShadyDOM = {force: true}`, and `ShadyCSS = {shimcssproperties: true}` to fix Polymer app rendering.
+
+## 5.0.2 - 2017-11-20
+### Changed
+- Added back `res.setHeader` for plugins to use
+
+## 5.0.1 - 2017-11-15
+### Changed
+- Set `renderType` to `html` for non "/render" endpoint
+
+## 5.0.0 - 2017-11-15
+### Added
+- Added Headless Chrome as a rendering engine!
+- Added new event types: `requestReceived`, `tabCreated`, `pageLoaded`.
+- Added new Prerender server option: `chromeLocation`
+- Added ability to request jpg and png screenshots
+- Added ability to request pdf export of a page
+- Added ability to request HAR file of page load times
+
+### Changed
+- Removed PhantomJS and all references to it
+- Removed old event types: `beforePhantomRequest`, `onPhantomPageCreate`, `afterPhantomRequest`, `beforeSend`
+- Removed In Memory Cache (moved to new repo)
+- Removed S3 HTML Cache (moved to new repo)
+- Removed Prerender server options that are no longer needed: `workers`, `iterations`, `softIterations`, `cookiesEnabled`, `pageDoneCheckTimeout`, `resourceDownloadTimeout`, `jsTimeout`, `noJsExecutionTimeout`, `evaluateJavascriptCheckTimeout`
+
+See the Readme.me for in depth descriptions of all of the new changes!
+
 ## 4.4.1 - 2016-12-28
 ### Changed
 - Whoops. Make sure `shouldEncodeURLBeforeBrowserFetch` defaults to true.
