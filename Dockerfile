@@ -1,6 +1,6 @@
 FROM node:9
 
-ENV CHROME_VERSION=64.0.3282.140-1
+ENV CHROME_VERSION=64.0.3282.167-1
 
 RUN apt-get update && apt-get install -y \
 	apt-transport-https \
