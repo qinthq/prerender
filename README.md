@@ -1,3 +1,28 @@
+Prerender Docker Image
+======================
+
+Prerender makes use of Chrome Headless which needs special container 
+capabilities to start.
+
+The following command will allow the container to access the `/dev/dri`
+device, mount `/dev/shm`, and use a custom `seccomp` configuration.
+
+    docker run --name=prerender \
+      --device /dev/dri \
+      --volume /dev/shm:/dev/shm \
+      --security-opt seccomp=$HOME/chrome.json \
+      lune/prerender
+
+DRI & shm are handed out to the container to avoid memory management
+issues. The `chrome.json` is from @jessfraz : https://github.com/jessfraz/dotfiles/blob/master/etc/docker/seccomp/chrome.json
+
+You can read more at jessfraz/dockerfiles#17
+
+A simpler yet mostly unsecure is to add `--cap-add=SYS_ADMIN` to the
+`docker run` command.
+
+The remaining of the README is the content of the upstream repository :
+ 
 Prerender [![Stories in Ready](https://badge.waffle.io/prerender/prerender.png?label=ready&title=Ready)](https://waffle.io/prerender/prerender)
 ===========================
 
