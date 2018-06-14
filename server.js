@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 var prerender = require('./lib');
-var prerender = require('prerender');
 var server = prerender();
 
 server.use(prerender.sendPrerenderHeader());
