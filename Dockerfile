@@ -1,7 +1,7 @@
 FROM node:9
 
 ENV CHROME_VERSION=67.0.3396.87-1
-ENV ALLOWED_DOMAINS=www.uwai.com,uwai.com,www.uwai.io,uwai.io,example.com
+ENV ALLOWED_DOMAINS=www.uwai.com,uwai.com,www.uwai.io,uwai.io,www.app.uwai.com,app.uwai.com,www.app.uwai.io,app.uwai.ioexample.com
 
 RUN apt-get update && apt-get install -y \
 	apt-transport-https \
